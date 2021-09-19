@@ -1,8 +1,8 @@
-﻿#include<iostream>
+#include<iostream>
 #include<string>
 
 #include "myTable.h"
-#include "InputLogic.cpp"
+#include "CommandParsing.cpp"
 using namespace std;
 
 
@@ -38,7 +38,7 @@ int main() {
 		ptrToTable->printTable();
 		cout << endl;
 		getline(cin,input);
-		InputLogic(ptrToTable,input);
+		CommandParsing(ptrToTable,input);
 	}
 
 
