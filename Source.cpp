@@ -3,42 +3,33 @@
 
 #include "myTable.h"
 #include "CommandParsing.h"
+
 using namespace std;
-
-
-/*
-	  ------- SOR / ROW----->  Cells[i].push_back(var);
-	|					  Cells[i].resize(size, var);
-	|
-	|
-  OSZLOP
-  COLUMN        Cells.push_back(vector<int>());
-	|		    Cells.resize(meret, vector<int>(0));
-	|
-	↓
-
-*/
 
 /*
 standard bemeneten:
-1   - oszlopok bovitese 1el
-2   - sorok bovitese 1el
-edit xy   - xy kordinátáju cella átváltása 1es értékre
+edit [char][num] string...
+add rows [num]
+add columns [num]
+remove row [num]
+remove column [num] 
 exit	- kilép a program
 */
+
 int main() {
 
 	string input = "";
 	myTable* ptrToTable = new myTable;
 
+	ptrToTable->printTableSpecs();
+	ptrToTable->printTable();					//Initial draw of Table
 
-	while (input != "exit") { // MAIN LOOP
+	while (input != "exit") { // MAIN LOOP - Basic "Game Loop"   Input -> Update -> Draw
 
-		ptrToTable->printTableSpecs();
-		ptrToTable->printTable();
-		cout << endl;
-		getline(cin,input);
-		CommandParsing(ptrToTable,input);
+		cout << ":"; getline(cin, input);		// INPUT
+		CommandParsing(ptrToTable, input);		// UPDATE
+		ptrToTable->printTableSpecs();			// for debugging - printing table dimensions
+		ptrToTable->printTable();				// DRAW
 	}
 
 
