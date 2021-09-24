@@ -3,27 +3,27 @@
 const std::string myTable::columnLetters = "ABCDEFGHIJ";
 const std::string myTable::emptyCellSymbol = "_";
 
-void myTable::printTable() const{
+void myTable::printTable() const {
 	std::cout << "-------TABLE-------" << std::endl;
-	
+
 	std::cout << "  ";
-	for (int i = 0; i < getColumn(); i++) {  // ROW Lettering
+	for (int i = 0; i < getColumn(); i++) {  // Column Lettering
 		std::cout << columnLetters[i] << "\t" << "  ";
 	}
 	std::cout << std::endl;
-	
+
 
 	for (unsigned int i = 0; i < Cells.size(); i++) {              //       "\t"
 		std::cout << i + 1 << " ";
 		for (unsigned int j = 0; j < Cells[i].size(); j++) {
 
-			if (Cells[i][j].size() > 8)
+			if (Cells[i][j].size() > 5)
 				std::cout << Cells[i][j].substr(0, 6) << "..";	// If Cell is too big, truncate it
 			else
 				std::cout << Cells[i][j] << "\t" << "  ";       // Compensating for Tabulator Spacing
 
 		}
-		std::cout << Cells[i].size() << std::endl;
+
 		std::cout << std::endl;
 	}
 	std::cout << "-------------------" << std::endl;
@@ -54,9 +54,9 @@ void myTable::deleteRow(int toDelete) {
 	if (toDelete > getRow() || toDelete == 0)
 		std::cout << "Row doesn't exist" << std::endl;
 	else {
-	auto iterator = Cells.begin()+toDelete - 1 ;
-	Cells.erase(iterator);
-	setRow(getRow() - 1);
+		auto iterator = Cells.begin() + toDelete - 1;
+		Cells.erase(iterator);
+		setRow(getRow() - 1);
 	}
 }
 
@@ -65,8 +65,8 @@ void myTable::deleteColumn(int toDelete) {
 	if (toDelete > getColumn() || toDelete == 0)
 		std::cout << "Column doesn't exist" << std::endl;
 	else {
-		for(int i = 0;i < getRow();i++)
-			Cells[i].erase(Cells[i].begin()+toDelete-1);
+		for (int i = 0; i < getRow(); i++)
+			Cells[i].erase(Cells[i].begin() + toDelete - 1);
 		setColumn(getColumn() - 1);
 	}
 }
@@ -74,13 +74,11 @@ void myTable::deleteColumn(int toDelete) {
 void myTable::setCell(int yPos, int xPos, std::string const& toSet) {
 
 	//Check if Cells exist
-	std::cout << yPos << " > " <<getRow() << " --- "<< xPos << " > " << getColumn() <<  std::endl;
-
 	if ((yPos < 1 || xPos < 1) || (xPos > getRow() || yPos > getColumn()))
 		std::cout << "Cell doesn't exist" << std::endl;
 
-	//If Exist set it to toSet val
+	//If exist set it to toSet val
 	else
-		Cells[xPos-1][yPos-1] = toSet; 
+		Cells[xPos - 1][yPos - 1] = toSet;
 
 }
