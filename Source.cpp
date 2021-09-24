@@ -2,7 +2,7 @@
 #include<string>
 
 #include "myTable.h"
-#include "CommandParsing.cpp"
+#include "CommandParsing.h"
 using namespace std;
 
 
