@@ -1,6 +1,7 @@
 #include "CommandParsing.h"
 
 void Commands::CommandParsing(myTable* Table, std::string const& input) {
+	std::cout << input << std::endl;
 	std::vector<std::string> words;
 	if (input == "") { std::cout << "No Command given\n"; return; }
 	std::string command = splitString(words, input)[0];
