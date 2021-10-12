@@ -4,5 +4,6 @@ IFS=$'\n'
 
 
 ./project
-send "edit a1 asd"
+INPUT = "edit a1 asd"
+INPUT | ./project
 printf 'exit\n' | ./project
