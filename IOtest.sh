@@ -2,6 +2,7 @@
 
 IFS=$'\n'
 
+dos2unix input.txt
 ./project input.csv < input.txt
 
 <<COMMENT
