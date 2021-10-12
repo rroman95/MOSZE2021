@@ -22,7 +22,6 @@ void Commands::CommandParsing(myTable* Table, std::string const& input) {
 		break;
 	case (5):
 		std::cout << "\nEXITING PROGRAM" << std::endl;
-		std::exit;
 		break;
 	case (6):
 			saveParsing(Table, input);
