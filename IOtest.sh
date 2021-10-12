@@ -3,4 +3,4 @@
 IFS=$'\n'
 
 
-./project
+./project input.csv >> workflowOutput.txt
