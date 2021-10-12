@@ -3,5 +3,4 @@
 IFS=$'\n'
 
 
-./project input.csv >> workflowOutput.txt
-./project << exit
+printf 'exit\n' | ./project
