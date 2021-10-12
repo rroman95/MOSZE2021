@@ -58,7 +58,8 @@ int main(int argc,  char **argv) {
 	
 		std::cout << ":"; getline(std::cin, input);		// INPUT
 		//terminalRefresh(isWin);						// refreshing terminal
-		if (input == "exit") return 0;
+		if (input == "exit\n" || input == "exit\r\n") return 0;
+		else std::cout << "Program will not Exit" <<std::endl;
 		commands.CommandParsing(ptrToTable, input);		// UPDATE
 		printTableOS(ptrToTable, 1);					// DRAW
 		loopLimit++;
