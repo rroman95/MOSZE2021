@@ -3,7 +3,7 @@
 IFS=$'\n'
 
 
-./project input.csv;echo "edit a1 asd
+./project input.csv;echo "edit a1 asdasd
 add 2 rows
 add 2 columns
 edit c3 LE GRANDE FINALE
