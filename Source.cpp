@@ -53,14 +53,14 @@ int main(int argc,  char **argv) {
 	}*/
 
 
-	while (input != "exit" ) {	// MAIN LOOP - Basic "Game Loop"   Input -> Update -> Draw
+	while (true) {	// MAIN LOOP - Basic "Game Loop"   Input -> Update -> Draw
 
-		do {
-		std::cout << ":"; getline(std::cin, input);	// INPUT
-		} while (input == "");						// empty command
+	
+		std::cout << ":"; getline(std::cin, input);		// INPUT
 		//terminalRefresh(isWin);						// refreshing terminal
-		commands.CommandParsing(ptrToTable, input);	// UPDATE
-		printTableOS(ptrToTable, 1);			// DRAW
+		if (input == "exit") return 0;
+		commands.CommandParsing(ptrToTable, input);		// UPDATE
+		printTableOS(ptrToTable, 1);					// DRAW
 	}
 
 	return 0;
