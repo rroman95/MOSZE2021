@@ -18,7 +18,7 @@ public:
 		command_codes.insert(std::pair<std::string, int>("add", 2));
 		command_codes.insert(std::pair<std::string, int>("delete", 3));
 		command_codes.insert(std::pair<std::string, int>("insert", 4));
-		command_codes.insert(std::pair<std::string, int>("exitt", 5));
+		command_codes.insert(std::pair<std::string, int>("exit", 5));
 		command_codes.insert(std::pair<std::string, int>("save", 6));
 	}
 

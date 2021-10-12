@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-edit a1 omg
 save output.csv
-exitt
-=======
-edit a1 asd
-save output.csv
-exit
->>>>>>> e113d9732bf3f671a8fe00ba78cb112b593615c8
+exit 
+
