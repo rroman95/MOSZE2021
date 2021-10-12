@@ -126,7 +126,9 @@ void terminalRefresh(bool isWin) {
 }
 
 void checkOS(bool& isWin) {
-#ifdef __APPLE__ || __linux__
+#ifdef __APPLE__
+	isWin = false;
+#elif __linux__
 	isWin = false;
 #elif _WIN32
 	isWin = true;
