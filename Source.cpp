@@ -52,8 +52,8 @@ int main(int argc,  char **argv) {
 		printTableOS(ptrToTable, isWin);
 	}*/
 
-
-	while (true) {	// MAIN LOOP - Basic "Game Loop"   Input -> Update -> Draw
+	int loopLimit = 0;
+	while (loopLimit < 20) {	// MAIN LOOP - Basic "Game Loop"   Input -> Update -> Draw
 
 	
 		std::cout << ":"; getline(std::cin, input);		// INPUT
@@ -61,6 +61,7 @@ int main(int argc,  char **argv) {
 		if (input == "exitt") return 0;
 		commands.CommandParsing(ptrToTable, input);		// UPDATE
 		printTableOS(ptrToTable, 1);					// DRAW
+		loopLimit++;
 	}
 
 	return 0;
