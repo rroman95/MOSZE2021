@@ -5,4 +5,4 @@ IFS=$'\n'
 
 INPUT = "edit a1 asd"
 INPUT | ./project
-printf 'exit\n' | ./project
+printf 'edit a1 asd\n' | ./project
