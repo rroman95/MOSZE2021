@@ -27,7 +27,7 @@ myTable* checkArgCountForFileHandling(int argc, char** argv);
 
 
 int main(int argc,  char **argv) {
-
+	std::cout << "This is a loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong line." <<std::endl;
 	Commands commands;
 	myTable* ptrToTable = nullptr;
 	std::string input = "";
