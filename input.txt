@@ -16,3 +16,4 @@ edit d5 last
 edit e5 ROW
 save output.csv
 exit
+.
