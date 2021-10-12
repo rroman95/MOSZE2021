@@ -3,5 +3,5 @@
 IFS=$'\n'
 
 
-./project input.csv << input.txt
+./project input.csv < input.txt
 
