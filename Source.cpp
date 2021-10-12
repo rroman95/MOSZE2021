@@ -58,7 +58,7 @@ int main(int argc,  char **argv) {
 		do {
 		std::cout << ":"; getline(std::cin, input);	// INPUT
 		} while (input == "");						// empty command
-		terminalRefresh(isWin);						// refreshing terminal
+		//terminalRefresh(isWin);						// refreshing terminal
 		commands.CommandParsing(ptrToTable, input);	// UPDATE
 		printTableOS(ptrToTable, isWin);			// DRAW
 	}
