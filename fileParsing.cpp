@@ -21,7 +21,6 @@ myTable* fileParsing::fileHandling(char* argv[]) { // STATIKUS FÜGGVÉNY !!!!!!!
 }
 
 myTable* fileParsing::fileHandling(char* argv[], std::string separator) {		// SOK a function exit point !
-	std::cout << "CALLING SEPARATOR FUNCTION" << std::endl;								//			|
 	std::string sepCommandFromArgToString = argv[2];	// -sep							//			|
 	std::string sepCharFromArgToString = argv[3];		// -sep [c]						//			|
 	if (argv[2] != sepCommandFromArgToString) {											//			|
@@ -74,21 +73,6 @@ void fileParsing::saveFile(myTable* Table, std::string fileName, std::string sep
 	Table->printTableSpecs();
 	Table->printTableWin();
 		// getCell (x   ,   y) 
-		
-	/*for (int j = 0; j < Table->getRow()-1; j++) {
-
-	for (int j = 0; j < Table->getRow(); j++) {
-
-
-		for (int i = 0; i < Table->getColumn(); i++) {
-			openFileStream << Table->getCell(i + 1, j + 1);
-			if (i < Table->getColumn() - 1)
-				openFileStream << ";";
-		}
-		if(j < Table->getRow()-1)
-			openFileStream << std::endl;
-	}
-	}*/
 
 	for (int j = 0; j < Table->getRow(); j++) {
 
@@ -196,4 +180,23 @@ myTable* fileParsing::createTableFromFile(std::ifstream& myfile,char separator) 
 }
 
 
-//static myTable& createTableFromFile(std::string file, char separator) {}
+void fileParsing::commandsFromFileToVector(std::string fileName, std::vector<std::string> &vectorOfCommands) {
+
+	std::cout << "Reading commands from file\n";
+
+	std::ifstream fileStream(fileName);
+	if (!fileStream.is_open())
+		std::cout << "File doesn't exist" << std::endl;
+	else {
+		std::cout << "File exist " << fileName << std::endl;
+
+		while (!fileStream.eof()) {   // !myfile.eof() wont read last line
+			std::cout << ".";
+			std::string line = "";
+			std::getline(fileStream, line);
+			vectorOfCommands.push_back(line);
+		}
+
+	}
+
+}

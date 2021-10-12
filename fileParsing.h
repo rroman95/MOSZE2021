@@ -17,6 +17,9 @@ struct fileParsing {
 	static myTable* fileHandling(char* argv[]);
 	static myTable* fileHandling(char* argv[], std::string sep);
 
+
+	static void commandsFromFileToVector(std::string fileName, std::vector<std::string>& vectorOfCommands);
+
 	static myTable* createTableFromFile(std::ifstream&, char _separator);
 
 	static void saveFile(myTable* Table, std::string fileName, std::string separator);

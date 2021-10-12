@@ -1,0 +1,17 @@
+edit a1 asd
+add 2 rows
+add 2 columns
+bad command test
+edit a2 a2
+edit b2 b2
+
+insert 2 columns before b
+edit b2 lol
+edit e3 end of line
+add 2 rows
+edit a5 this
+edit b5 is
+edit c5 the
+edit d5 last
+edit e5 ROW
+save output.csv
