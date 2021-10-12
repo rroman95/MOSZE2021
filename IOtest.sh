@@ -2,11 +2,12 @@
 
 IFS=$'\n'
 
-
-printf 'edit a1 asd\n' | ./project
 <<IGNORE
+printf 'edit a1 asd\n' | ./project
+
 printf 'add 2 rows\n' | ./project
 printf 'add 2 columns\n' | ./project
 printf 'edit c3 end\n' | ./project
 IGNORE
+echo -ne 'more'
 printf 'exit\n' | ./project
