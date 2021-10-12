@@ -1,0 +1,28 @@
+name: Input_Output_Test
+
+on:
+  push
+
+
+jobs:
+  
+  build_and_test:
+
+    runs-on: ubuntu-latest
+
+   
+    steps:
+      
+      - uses: actions/checkout@v2
+        
+      - name: Build
+        run: g++ -Wall -Werror -std=c++17 *.cpp -o project
+        
+      - name: Make executeable
+        run: chmod +x ./IOtest.sh
+        
+      - name: generate files        
+        run: ./IOtest.sh 
+        
+      - name: I/O test 
+        run: diff --strip-trailing-cr input.txt good_output.txt
