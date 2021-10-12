@@ -25,4 +25,4 @@ jobs:
         run: ./IOtest.sh 
         
       - name: I/O test 
-        run: diff --strip-trailing-cr input.txt good_output.txt
+        run: diff --strip-trailing-cr output.csv good_output.csv
