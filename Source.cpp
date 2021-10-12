@@ -41,7 +41,7 @@ int main(int argc,  char **argv) {
 	userGuide(isWin);
 	// Initial draw of Table
 	printTableOS(ptrToTable, isWin);
-	std::vector<std::string> vectorOfCommands;
+	/*std::vector<std::string> vectorOfCommands;
 
 	fileParsing::commandsFromFileToVector("input.txt", vectorOfCommands);
 
@@ -50,7 +50,7 @@ int main(int argc,  char **argv) {
 		std::cout << vectorOfCommands[i] << std::endl;
 		commands.CommandParsing(ptrToTable, vectorOfCommands[i]);	// UPDATE
 		printTableOS(ptrToTable, isWin);
-	}
+	}*/
 
 
 	while (input != "exit" ) {	// MAIN LOOP - Basic "Game Loop"   Input -> Update -> Draw
