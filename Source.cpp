@@ -60,7 +60,7 @@ int main(int argc,  char **argv) {
 		} while (input == "");						// empty command
 		//terminalRefresh(isWin);						// refreshing terminal
 		commands.CommandParsing(ptrToTable, input);	// UPDATE
-		printTableOS(ptrToTable, isWin);			// DRAW
+		printTableOS(ptrToTable, 1);			// DRAW
 	}
 
 	return 0;
