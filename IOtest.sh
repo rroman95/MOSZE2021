@@ -4,5 +4,5 @@ IFS=$'\n'
 
 
 ./project
-printf  'edit a1 asd\n' | ./project
+./project  << 'edit a1 asd'
 printf 'exit\n' | ./project
