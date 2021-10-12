@@ -3,4 +3,4 @@
 IFS=$'\n'
 
 
-echo "edit a1 asd" | .project
+echo "edit a1 asd" | ./project
