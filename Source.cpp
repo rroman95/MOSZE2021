@@ -45,7 +45,7 @@ int main(int argc,  char **argv) {
 
 	fileParsing::commandsFromFileToVector("input.txt", vectorOfCommands);
 
-	for (int i = 0; i < vectorOfCommands.size();i++) {
+	for (unsigned int i = 0; i < vectorOfCommands.size();i++) {
 		//terminalRefresh(isWin);						// refreshing terminal
 		std::cout << vectorOfCommands[i] << std::endl;
 		commands.CommandParsing(ptrToTable, vectorOfCommands[i]);	// UPDATE
