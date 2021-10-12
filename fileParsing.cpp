@@ -81,7 +81,7 @@ void fileParsing::saveFile(myTable* Table, std::string fileName, std::string sep
 			if (Table->getCell(iter + 1, j + 1) != "")
 				lastElementInRow = iter + 1;
 		}
-		std::cout << "Last element in this row: " << lastElementInRow << std::endl;
+		//std::cout << "Last element in this row: " << lastElementInRow << std::endl;
 
 		for (int i = 0; i < lastElementInRow; i++) {
 			openFileStream << Table->getCell(i + 1, j + 1);
@@ -141,11 +141,11 @@ myTable* fileParsing::createTableFromFile(std::ifstream& myfile,char separator) 
 			//std::cout << "IGNORING EMPTY LINE IN CSV FILE" << std::endl;
 			continue;
 		}*/
-		std::cout << "JUMPING LINE" << std::endl;
+		//std::cout << "JUMPING LINE" << std::endl;
 		rowElementIndex = 0;
 		//1 ELEMENT ONLY in current ROW
 		if (line.find(separator) == std::string::npos) {
-			std::cout << "pushing 1 element" << std::endl;
+			//std::cout << "pushing 1 element" << std::endl;
 			if(line == "")
 				newTable->setCell(rowElementIndex + 1, currentRow + 1, "");
 			else

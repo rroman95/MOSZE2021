@@ -51,8 +51,6 @@ public:
 	void setCell(int yPos, int xPos, std::string const& toSet);
 
 	std::string getCell(int yPos, int xPos) {	
-		std::cout << yPos << " : " << xPos << std::endl;
-		std::cout << xPos << " < " << getRow() << " : " << yPos << " < " << getColumn() << std::endl;
 		if ((yPos < 1 || xPos < 1) || (xPos > getRow() || yPos > getColumn())) {
 			std::cout << "Cell doesn't exist at pos: " << yPos << " : " << xPos << std::endl;
 			return ""; 
