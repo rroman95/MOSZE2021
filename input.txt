@@ -1,3 +1,3 @@
+edit a1 omg
 save output.csv
-exit
-
+exitt

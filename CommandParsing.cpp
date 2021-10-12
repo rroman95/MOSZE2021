@@ -63,6 +63,7 @@ int Commands::findCommandForSwitchStatement(std::string const& command) {
 	std::map<std::string, int>::iterator it = command_codes.begin();
 
 	while (it != command_codes.end()) {
+		std::cout << it->first << " : " << it->second << std::endl;
 
 		if (command == it->first)
 			return it->second;
