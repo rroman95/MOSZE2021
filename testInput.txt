@@ -1,0 +1,38 @@
+add 20 rows
+add 10 columns
+edit A1 asd
+edit B2 qwe
+edit d10 zxc
+edit f12 rty
+edit e3 fgh
+edit A5 vbn
+edit k1 uio
+edit A13 jkl
+edit g15 nmm
+edit f2 ppp
+edit D1 asd
+edit G2 qwe
+edit a10 zxc
+edit k12 rty
+edit k3 fgh
+edit c5 vbn
+edit j8 uio
+edit B13 jkl
+edit c15 nmm
+edit e17 ppp
+edit h5 asd
+edit h19 ghj
+edit I20 opl
+edit I12 bhr
+
+#include<fstream>
+
+    std::ifstream textFile(argv[1]);
+	std::string line;
+	(textFile.fail()) ? std::cout << "Input load failed!\n" : std::cout << "Input loaded!\n";
+
+    while (!textFile.eof()) {
+			getline(textFile, line);
+			CommandParsing(ptrToTable, line);
+		}
+		ptrToTable->printTable();

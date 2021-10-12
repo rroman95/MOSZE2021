@@ -1,0 +1,5 @@
+VS_build/
+Source
+.vscode
+.DS_Store
+*.exe
