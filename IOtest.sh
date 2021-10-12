@@ -10,5 +10,5 @@ printf 'add 2 columns\n' | ./project
 printf 'edit c3 end\n' | ./project
 IGNORE
 ./project
-echo -ne '\n' | edit a1 asd
+./project echo -ne '\n' | edit a1 asd
 printf 'exit\n' | ./project
