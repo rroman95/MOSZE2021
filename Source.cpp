@@ -57,6 +57,7 @@ int main(int argc,  char **argv) {
 
 	
 		std::cout << ":"; getline(std::cin, input);		// INPUT
+		std::cout << "Input: " << input << std::endl;
 		//terminalRefresh(isWin);						// refreshing terminal
 		if (input == "exit\n" || input == "exit\r\n") return 0;
 		else std::cout << "Program will not Exit" <<std::endl;
