@@ -1,7 +1,7 @@
 edit a1 asd
-add 1 columns
-add 2 rows
-edit c3 LE GRANDE FINALE
+add 2 columns
+add 1 rows
+edit b3 LE GRANDE FINALE
 save output.csv
 exit
 dont read this line
