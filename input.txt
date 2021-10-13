@@ -1,3 +1,4 @@
+edit a1 asd
 save output.csv
 exit 
 dont read this line
