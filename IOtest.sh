@@ -11,7 +11,10 @@ while IFS= read -r line; do
     ARRAY+=$line
 done < input.txt
 echo "Array elements:"
-echo ${#ARRAY[@]}
+
+#echo ${#ARRAY[@]}
+
+for i in ${ARRAY[@]}; do echo $i; done
 
 <<COMMENT
 echo "edit   a1    asd   
