@@ -22,7 +22,7 @@ done
 COMMENT
 
 while IFS= read -r LINE; do
-    "$LINE"
+   echo "$LINE"
 done < input.txt > ./project
 
 <<COMMENT
