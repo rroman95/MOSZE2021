@@ -59,7 +59,7 @@ int main(int argc,  char **argv) {
 		std::cout << ":"; getline(std::cin, input);		// INPUT
 		std::cout << "Input: " << input << std::endl;
 		//terminalRefresh(isWin);						// refreshing terminal
-		if (input == "exit\n" || input == "exit\r\n" || input == "exit") {std::cout << "Program will exit" << std::endl; return 0;}
+		if (input == "exit" || input == "exit ") {std::cout << "Program will exit" << std::endl; return 0;}
 		else std::cout << "Program will not Exit" <<std::endl;
 		commands.CommandParsing(ptrToTable, input);		// UPDATE
 		printTableOS(ptrToTable, 1);					// DRAW
