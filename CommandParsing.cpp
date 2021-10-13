@@ -63,14 +63,14 @@ void Commands::saveParsing(myTable* Table, std::string const& input) {
 }
 
 int Commands::findCommandForSwitchStatement(std::string const& command) {
-	std::map<std::string, int>::iterator it = command_codes.begin();
+	std::map<int, std::string>::iterator it = command_codes.begin();
 	if (command == "exit" || command == "exit ") return 5; // 5 -> Code for EXIT command
 
 	while (it != command_codes.end()) {
 		std::cout << it->first << " : " << it->second << std::endl;
 
-		if (command == it->first)
-			return it->second;
+		if (command == it->second)
+			return it->first;
 		it++;
 	}
 

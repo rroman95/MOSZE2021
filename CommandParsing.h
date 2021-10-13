@@ -11,15 +11,15 @@
 
 class Commands {
 public:
-	std::map<std::string, int> command_codes;
+	std::map<int, std::string> command_codes;
 
 	Commands() {
-		command_codes.insert(std::pair<std::string, int>("edit", 1));
-		command_codes.insert(std::pair<std::string, int>("add", 2));
-		command_codes.insert(std::pair<std::string, int>("delete", 3));
-		command_codes.insert(std::pair<std::string, int>("insert", 4));
-		command_codes.insert(std::pair<std::string, int>("exit", 5));
-		command_codes.insert(std::pair<std::string, int>("save", 6));
+		command_codes.insert(std::pair<int, std::string>(1, "edit"));
+		command_codes.insert(std::pair<int, std::string>(2, "add"));
+		command_codes.insert(std::pair<int, std::string>(3, "delete"));
+		command_codes.insert(std::pair<int, std::string>(4, "insert"));
+		command_codes.insert(std::pair<int, std::string>(5, "exit"));
+		command_codes.insert(std::pair<int, std::string>(6, "save"));
 	}
 
 	void CommandParsing(myTable* Table, std::string const& input, bool &exitFlag);
