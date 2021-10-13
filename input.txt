@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 edit a1 asd
 edit a1   whitespace test
 edit a1 lol  lol   
@@ -8,3 +9,15 @@ save output.csv
 exit
 exit 
 dont read this line
+=======
+edit a1 asd
+edit a1   whitespace test
+edit a1 lol  lol   
+add 2 rows 
+add 2 columns 
+edit c3 END
+save output.csv 
+exit
+exit 
+dont read this line
+>>>>>>> 0159caa0f6755b820bb6324a936d7791cc991c58
