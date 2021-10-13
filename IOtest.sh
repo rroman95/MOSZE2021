@@ -21,11 +21,16 @@ echo "---"
 done
 COMMENT
 
+while IFS= read -r LINE; do
+    "$LINE"
+done < file > ./project
 
+<<COMMENT
 echo "edit   a1    asd   
 add 2  rows
 add 2 columns
 edit c2 LE GRANDE FINALE
 save output.csv 
 exit" | ./project
+COMMENT
 
