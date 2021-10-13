@@ -7,6 +7,8 @@ void Commands::CommandParsing(myTable* Table, std::string const& input, bool &ex
 	std::string command = splitString(words, input)[0];
 	int switchstatement = findCommandForSwitchStatement(command);
 
+	std::cout << "SwitchStatement to look for: " << switchstatement << std::endl;
+
 	switch (switchstatement) {
 	case (1):
 		editParsing(Table, input);
