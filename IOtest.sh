@@ -8,7 +8,7 @@ IFS=$'\n'
 declare -a ARRAY
 while IFS= read -r line; do
     echo "Text read from file: $line"
-    ARRAY+=line
+    ARRAY+="$line"
 done < input.txt
 echo "Array elements:"
 echo ${#ARRAY[@]}
