@@ -23,7 +23,7 @@ COMMENT
 
 while IFS= read -r LINE; do
    echo "$LINE"
-done < input.txt > ./project
+done < input.txt | ./project
 
 <<COMMENT
 echo "edit   a1    asd   
