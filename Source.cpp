@@ -53,15 +53,14 @@ int main(int argc,  char **argv) {
 	}*/
 
 	int loopLimit = 0;
-	while (loopLimit < 20) {	// MAIN LOOP - Basic "Game Loop"   Input -> Update -> Draw
+	bool exitFlag = 0;
+	while (exitFlag == 0) {	// MAIN LOOP - Basic "Game Loop"   Input -> Update -> Draw
 
 	
 		std::cout << ":"; getline(std::cin, input);		// INPUT
 		std::cout << "Input: " << input << std::endl;
 		//terminalRefresh(isWin);						// refreshing terminal
-		if (input == "exit" || input == "exit ") {std::cout << "Program will exit" << std::endl; return 0;}
-		else std::cout << "Program will not Exit" <<std::endl;
-		commands.CommandParsing(ptrToTable, input);		// UPDATE
+		commands.CommandParsing(ptrToTable, input, exitFlag);		// UPDATE
 		printTableOS(ptrToTable, 1);					// DRAW
 		loopLimit++;
 	}

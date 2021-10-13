@@ -24,7 +24,7 @@ public:
 		command_codes.insert(std::pair<std::string, int>("save", 6));
 	}
 
-	void CommandParsing(myTable* Table, std::string const& input);
+	void CommandParsing(myTable* Table, std::string const& input, bool &exitFlag);
 	int findCommandForSwitchStatement(std::string const& command);
 
 	std::vector<std::string> splitString(std::vector<std::string> &words, std::string const& input);

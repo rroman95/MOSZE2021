@@ -1,6 +1,6 @@
 #include "CommandParsing.h"
 
-void Commands::CommandParsing(myTable* Table, std::string const& input) {
+void Commands::CommandParsing(myTable* Table, std::string const& input, bool &exitFlag) {
 	std::cout << input << std::endl;
 	std::vector<std::string> words;
 	if (input == "") { std::cout << "No Command given\n"; return; }
@@ -22,6 +22,7 @@ void Commands::CommandParsing(myTable* Table, std::string const& input) {
 		break;
 	case (5):
 		std::cout << "\nEXITING PROGRAM" << std::endl;
+		exitFlag = 1;
 		break;
 	case (6):
 			saveParsing(Table, input);
