@@ -5,7 +5,7 @@ IFS=$'\n'
 
 #./project input.csv < input.txt
 
-ARRAY=()
+declare -a ARRAY
 while IFS= read -r line; do
     echo "Text read from file: $line"
     ARRAY += line
