@@ -15,8 +15,8 @@ echo "Array elements:"
 #echo ${#ARRAY[@]}
 
 for i in ${ARRAY[@]}; do 
-printf "$i\n" | ./project; 
-done 
+echo "$i\n"; 
+done  | ./project
 
 <<COMMENT
 echo "edit   a1    asd   
