@@ -1,9 +1,7 @@
 edit a1 asd
-edit a1   whitespace test
-edit a1 lol  lol
+add 1 columns
 add 2 rows
-add 2 columns
-edit c3 END
+edit c3 LE GRANDE FINALE
 save output.csv
 exit
 dont read this line
