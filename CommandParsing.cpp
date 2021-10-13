@@ -1,7 +1,6 @@
 #include "CommandParsing.h"
 
 void Commands::CommandParsing(myTable* Table, std::string const& input, bool &exitFlag) {
-	if(input == "exit") input += " ";
 	std::cout << input << std::endl;
 	std::vector<std::string> words;
 	if (input == "") { std::cout << "No Command given\n"; return; }
@@ -63,6 +62,7 @@ void Commands::saveParsing(myTable* Table, std::string const& input) {
 
 int Commands::findCommandForSwitchStatement(std::string const& command) {
 	std::map<std::string, int>::iterator it = command_codes.begin();
+	if (command == "exit" || command == "exit ") return 5; // 5 -> Code for EXIT command
 
 	while (it != command_codes.end()) {
 		std::cout << it->first << " : " << it->second << std::endl;

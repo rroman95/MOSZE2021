@@ -19,7 +19,6 @@ public:
 		command_codes.insert(std::pair<std::string, int>("delete", 3));
 		command_codes.insert(std::pair<std::string, int>("insert", 4));
 		command_codes.insert(std::pair<std::string, int>("exit", 5));
-		command_codes.insert(std::pair<std::string, int>("exit ", 5)); // THIS LINE IS FOR SOME SHITTY LINUX ENDLINE COMPATIBILITY
 		command_codes.insert(std::pair<std::string, int>("save", 6));
 	}
 
