@@ -1,10 +1,10 @@
 edit a1 asd
 edit a1   whitespace test
 edit a1 lol  lol   
-add 2 rows
-add 2 columns
+add 2 rows 
+add 2 columns 
 edit c3 END
-save output.csv
+save output.csv 
 exit
 exit 
 dont read this line
