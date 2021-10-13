@@ -9,7 +9,30 @@ void Commands::CommandParsing(myTable* Table, std::string const& input, bool &ex
 
 	std::cout << "SwitchStatement to look for: " << switchstatement << std::endl;
 
-	switch (switchstatement) {
+	if (switchstatement == 1) 
+		editParsing(Table, input);
+	
+	else if (switchstatement == 2) 
+		addRowsOrColumns(Table, input);
+	
+	else if (switchstatement == 3) 
+		deleteRowsOrColumns(Table, input);
+	
+	else if (switchstatement == 4) 
+		insertParsing(Table, input);
+	
+	else if (switchstatement == 5) {
+		std::cout << "\nEXITING PROGRAM" << std::endl;
+		exitFlag = 1;
+	}
+	
+	else if (switchstatement == 6) 
+		saveParsing(Table, input);
+	
+	else
+		std::cout << "\nUnknown Command!" << std::endl;
+
+	/*switch (switchstatement) {
 	case (1):
 		editParsing(Table, input);
 		break;
@@ -33,7 +56,7 @@ void Commands::CommandParsing(myTable* Table, std::string const& input, bool &ex
 	default:
 		std::cout << "\nUnknown Command!" << std::endl;
 		break;
-	}
+	}*/
 
 }
 //	0		1		  2	 3
