@@ -1,6 +1,7 @@
 #include "CommandParsing.h"
 
 void Commands::CommandParsing(myTable* Table, std::string const& input, bool &exitFlag) {
+	if(input == "exit") input += " ";
 	std::cout << input << std::endl;
 	std::vector<std::string> words;
 	if (input == "") { std::cout << "No Command given\n"; return; }
