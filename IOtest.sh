@@ -15,7 +15,7 @@ echo "Array elements:"
 #echo ${#ARRAY[@]}
 
 for i in ${ARRAY[@]}; do 
-echo "$i\n"; 
+echo ARRAY[i]; 
 done  | ./project
 
 <<COMMENT
