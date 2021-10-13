@@ -7,7 +7,10 @@ IFS=$'\n'
 
 while IFS= read -r line; do
     echo "Text read from file: $line"
+    ARRAY += line
 done < input.txt
+echo "Array elements:"
+echo ${#ARRAY[@]}
 
 <<COMMENT
 echo "edit   a1    asd   
