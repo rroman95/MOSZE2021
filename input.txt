@@ -2,6 +2,7 @@ edit a1 asd
 add 2 columns
 add 1 rows
 edit c2 LE GRANDE FINALE
+edit a2 omg
 save output.csv
 exit
 dont read this line
