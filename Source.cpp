@@ -1,5 +1,5 @@
 /* TODO LIST
-
+ 
 - File mentése
 	Save command
 - Commands osztály funkcióit STATIKUSSÁ varázsolni
