@@ -10,4 +10,4 @@ jobs:
       - name: cmake
         run: cd tests && cmake . && make
       - name: Teszt futtatas
-        run: make unittest
+        run: make unittests
