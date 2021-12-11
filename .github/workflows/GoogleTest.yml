@@ -1,0 +1,13 @@
+name: JsonParser Tests
+on: push
+jobs:
+  unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Gtest/Cmake instalalas
+        run: sudo apt install libgtest-dev && sudo apt install cmake && cd /usr/src/gtest && sudo cmake . && sudo make  && sudo cp *.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+      - name: cmake
+        run: cd tests && cmake . && make
+      - name: Teszt futtatas
+        run: make unittest
