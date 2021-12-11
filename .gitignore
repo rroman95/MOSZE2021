@@ -1,6 +1,6 @@
 VS_build/
-Project1/
 Source
 .vscode
 .DS_Store
 *.exe
+mysvg.svg

@@ -1,22 +1,11 @@
-/* TODO LIST
- 
-- File mentése
-	Save command
-- Commands osztály funkcióit STATIKUSSÁ varázsolni
-
--MINDEN PARANCSRA LEHAL A PROGRAM, AHOL AZ NINCS VÉGIGÍRVA
-	vector subscript out of range !!!  Vector element ellenôrzés a vector<words>-nek csak ott legyen, ahol létezik is az az elem !!!
-	Mert a vector[] operatornál nincs bounds checking
-
- */
-
 #include <iostream>
 #include <string>
 
 #include "myTable.h"
+#include "Cell.h"
+
 #include "CommandParsing.h"
 #include "fileParsing.h"
-
 
 //FORWARD DECLARATION
 void userGuide(bool isWin);
@@ -24,10 +13,10 @@ void printTableOS(myTable* mtb, bool isWin);
 void terminalRefresh(bool isWin);
 void checkOS(bool &isWin);
 myTable* checkArgCountForFileHandling(int argc, char** argv);
+ 
 
-
+//MAIN
 int main(int argc,  char **argv) {
-	std::cout << "This is a loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong line." <<std::endl;
 	Commands commands;
 	myTable* ptrToTable = nullptr;
 	std::string input = "";
@@ -37,82 +26,88 @@ int main(int argc,  char **argv) {
 	bool isWin;
 	checkOS(isWin);
 
-	// Print User Guide
-	userGuide(isWin);
-	// Initial draw of Table
-	printTableOS(ptrToTable, isWin);
-	/*std::vector<std::string> vectorOfCommands;
-
-	fileParsing::commandsFromFileToVector("input.txt", vectorOfCommands);
-
-	for (unsigned int i = 0; i < vectorOfCommands.size();i++) {
-		//terminalRefresh(isWin);						// refreshing terminal
-		std::cout << vectorOfCommands[i] << std::endl;
-		commands.CommandParsing(ptrToTable, vectorOfCommands[i]);	// UPDATE
-		printTableOS(ptrToTable, isWin);
-	}*/
-
-	int loopLimit = 0;
-	bool exitFlag = 0;
-	while (exitFlag == 0) {	// MAIN LOOP - Basic "Game Loop"   Input -> Update -> Draw
-
+	userGuide(isWin); // Print User Guide
+	std::cout << "DEBUG LINE\n";
+	ptrToTable->promoteCellsAfterFileParsing(ptrToTable);
 	
-		std::cout << ":"; getline(std::cin, input);		// INPUT
-		std::cout << "Input: " << input << std::endl;
-		//terminalRefresh(isWin);						// refreshing terminal
-		commands.CommandParsing(ptrToTable, input, exitFlag);		// UPDATE
-		printTableOS(ptrToTable, 1);					// DRAW
-		loopLimit++;
+	printTableOS(ptrToTable, isWin); // Initial draw of Table
+	
+
+	while (input != "exit") {	// MAIN LOOP - Basic "Game Loop"   Input -> Update -> Draw
+
+		do {
+		std::cout << ":"; getline(std::cin, input);	// INPUT
+		} while (input == "");						// empty command
+		terminalRefresh(isWin);						// refreshing terminal
+		userGuide(isWin);							// user guide
+		commands.CommandParsing(ptrToTable, input);	// UPDATE
+		printTableOS(ptrToTable, isWin);			// DRAW
+		
+
 	}
+
+	delete ptrToTable;
 
 	return 0;
 }
 
-//		0	   1	   2  3
-//	./prog table.csv -sep ,
-
-myTable* checkArgCountForFileHandling(int argc, char** argv) { // itt sok a sok a faszság meg a szétágazás
+/** Checks, wheter there is a file as argument, if no starts the main loop with a default table */
+myTable* checkArgCountForFileHandling(int argc, char** argv) {
 	myTable* ptrToTable = nullptr;
 
 	if (argc == 2) {
 		ptrToTable = fileParsing::fileHandling(argv); // create myTable from file
 	}
 	else if (argc == 4)
-			ptrToTable = fileParsing::fileHandling(argv, argv[3]);	// create myTable from file with given separator character
+			ptrToTable = fileParsing::fileHandling(argv, argv[3]); // create myTable from file with given separator character
 
 	else {
 		std::cout << "No or Wrong Arguments, creating default table" << std::endl;
-		ptrToTable = new myTable;
+		ptrToTable = new myTable("def_table");
 	}
 
 	if (ptrToTable == nullptr) {
-		ptrToTable = new myTable;
+		ptrToTable = new myTable("def_table");
 	}
 
 	return ptrToTable;
 }
 
+/** LINUX AND iOS type User Guide */
 void userGuide(bool isWin) {
 	if (!isWin) {
 		std::cout << "┏━━━━━━━━━━━━━━User Guide━━━━━━━━━━━━━━━┓";
 		std::cout << "\n┃edit XY string\t\t\t\t" << "┃";
-		std::cout << "\n┃add N rows/cols\t\t\t" << "┃";
+		std::cout << "\n┃add N rows/columns\t\t\t" << "┃";
 		std::cout << "\n┃delete X/Y\t\t\t\t" << "┃";
 		std::cout << "\n┃insert N rows/cols before/after X/Y\t" << "┃";
+		std::cout << "\n┃save filename.csv [-sep ,]\t\t" << "┃";
+		std::cout << "\n┃sort by X/Y [asc/desc (default: asc)]\t" << "┃";
+		std::cout << "\n┃swap MN XY\t\t\t\t" << "┃";
+		std::cout << "\n┃align XY left/right\t\t\t" << "┃";
+		std::cout << "\n┃align MN:XY left/right\t\t\t" << "┃";
+		std::cout << "\n┃clear MN:XY\t\t\t\t" << "┃";
 		std::cout << "\n┃exit\t\t\t\t\t" << "┃";
 		std::cout << "\n┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n";
 	}
 	else {
 		std::cout << "+--------------User Guide---------------+";
 		std::cout << "\n|edit XY string\t\t\t\t" << "|";
-		std::cout << "\n|add N rows/cols\t\t\t" << "|";
+		std::cout << "\n|add N rows/columns\t\t\t" << "|";
 		std::cout << "\n|delete X/Y\t\t\t\t" << "|";
 		std::cout << "\n|insert N rows/cols before/after X/Y\t" << "|";
+		std::cout << "\n|save filename.csv [-sep ,]\t\t" << "|";
+		std::cout << "\n|sort by X/Y [asc/desc (default: asc)]\t" << "|";
+		std::cout << "\n|swap MN XY\t\t\t\t" << "|";
+		std::cout << "\n|align XY left/right\t\t\t" << "|";
+		std::cout << "\n|align MN:XY left/right\t\t\t" << "|";
+		std::cout << "\n|clear MN:XY\t\t\t\t" << "|";
 		std::cout << "\n|exit\t\t\t\t\t" << "|";
 		std::cout << "\n+---------------------------------------+\n";
 	}
 }
 
+/** Prints the Table depending on the host OS */
 void printTableOS(myTable* mtb, bool isWin) {
 	if (!isWin)
 		mtb->printTable();
@@ -120,6 +115,7 @@ void printTableOS(myTable* mtb, bool isWin) {
 		mtb->printTableWin();
 }
 
+/** Clears the terminal depending on the host OS */
 void terminalRefresh(bool isWin) {
 	if (!isWin)
 		std::system("clear");
@@ -127,6 +123,7 @@ void terminalRefresh(bool isWin) {
 		std::system("cls");
 }
 
+/** host OS check */
 void checkOS(bool& isWin) {
 #ifdef __APPLE__
 	isWin = false;

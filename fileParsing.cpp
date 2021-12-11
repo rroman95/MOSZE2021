@@ -1,9 +1,6 @@
 #include "fileParsing.h"
 
-//		0	   1	   2  3
-//	./prog table.csv -sep ,
-
-myTable* fileParsing::fileHandling(char* argv[]) { // STATIKUS FÜGGVÉNY !!!!!!!
+myTable* fileParsing::fileHandling(char* argv[]) {
 	std::ifstream myfile;
 	myTable* newTable = nullptr;
 
@@ -21,6 +18,7 @@ myTable* fileParsing::fileHandling(char* argv[]) { // STATIKUS FÜGGVÉNY !!!!!!!
 }
 
 myTable* fileParsing::fileHandling(char* argv[], std::string separator) {		// SOK a function exit point !
+	std::cout << "CALLING SEPARATOR FUNCTION" << std::endl;								//			|
 	std::string sepCommandFromArgToString = argv[2];	// -sep							//			|
 	std::string sepCharFromArgToString = argv[3];		// -sep [c]						//			|
 	if (argv[2] != sepCommandFromArgToString) {											//			|
@@ -50,7 +48,7 @@ myTable* fileParsing::fileHandling(char* argv[], std::string separator) {		// SO
 	return newTable;
 
 
-	return nullptr;													//ITT kéne csak lennie 
+	return nullptr;
 }
 
 void fileParsing::saveFile(myTable* Table, std::string fileName, std::string separator = ";") {
@@ -58,44 +56,40 @@ void fileParsing::saveFile(myTable* Table, std::string fileName, std::string sep
 	std::ifstream fileStream(fileName);
 	std::ofstream openFileStream;
 	if (fileStream.is_open()) {
-		std::cout << "File exists" << std::endl;
+		std::cout << "File exists -> ";
 		fileStream.close();
-		std::cout << "Removing file" << std::endl;
+		std::cout << "Removing file. ";
 		std::remove(fileName.c_str());
-		std::cout << "Creating file with same name" << std::endl;
+		std::cout << "Creating file with same name." << std::endl;
 		openFileStream.open(fileName);
 	}
 	else {
 		std::cout << "File doesnt exist. Creating file: " << fileName << std::endl;
 		openFileStream.open(fileName);
 	}
-	//----WRITING myTable to file----//
-	Table->printTableSpecs();
-	Table->printTableWin();
-		// getCell (x   ,   y) 
 
+	//----WRITING myTable to file----//
 	for (int j = 0; j < Table->getRow(); j++) {
 
 		int lastElementInRow = 0;
 		for (int iter = 0; iter < Table->getColumn(); iter++) {
-			if (Table->getCell(iter + 1, j + 1) != "")
+			if (Table->getCell(iter, j) != "")
 				lastElementInRow = iter + 1;
-		}
-		//std::cout << "Last element in this row: " << lastElementInRow << std::endl;
+		}	
 
 		for (int i = 0; i < lastElementInRow; i++) {
-			openFileStream << Table->getCell(i + 1, j + 1);
+			openFileStream << Table->getCell(i, j);
 			if (i < lastElementInRow - 1)
 				openFileStream << separator;
 		}
 		if(j < Table->getRow()-1)
 			openFileStream << std::endl;
 	}
+	openFileStream << std::endl; // empty line at end of .csv file
 }
 
-
-myTable* fileParsing::createTableFromFile(std::ifstream& myfile,char separator) {	// SOK A KIKOMMENTELT PARANCS, AMIK CSAK DEBUGGOLÁSHOZ KELLETTEK,
-	std::string line;																// EGY DARABIG MÉG HAGYD MEG AZOKAT PLS
+myTable* fileParsing::createTableFromFile(std::ifstream& myfile,char separator) {
+	std::string line;																
 	std::cout << "CREATING TABLE" << std::endl;
 	unsigned int depth = 0;
 	unsigned int max_width = 0;
@@ -122,9 +116,10 @@ myTable* fileParsing::createTableFromFile(std::ifstream& myfile,char separator) 
 	}
 	max_width++;
 
-	std::cout << "Depth: " << depth << " MAX_WIDTH: " << max_width << std::endl;
+	std::cout << "Depth: " << depth - 1<< " MAX_WIDTH: " << max_width << std::endl;
+
 	//CREATE TABLE WITH SAME DIMENSIONS AS THE .csv file
-	myTable* newTable = new myTable(depth, max_width);
+	myTable* newTable = new myTable(depth - 1, max_width);
 	std::cout << "newTable created: ";
 	newTable->printTableSpecs();
 
@@ -141,11 +136,11 @@ myTable* fileParsing::createTableFromFile(std::ifstream& myfile,char separator) 
 			//std::cout << "IGNORING EMPTY LINE IN CSV FILE" << std::endl;
 			continue;
 		}*/
-		//std::cout << "JUMPING LINE" << std::endl;
+		std::cout << "JUMPING LINE" << std::endl;
 		rowElementIndex = 0;
 		//1 ELEMENT ONLY in current ROW
 		if (line.find(separator) == std::string::npos) {
-			//std::cout << "pushing 1 element" << std::endl;
+			std::cout << "pushing 1 element" << std::endl;
 			if(line == "")
 				newTable->setCell(rowElementIndex + 1, currentRow + 1, "");
 			else
@@ -165,12 +160,11 @@ myTable* fileParsing::createTableFromFile(std::ifstream& myfile,char separator) 
 				newTable->setCell(rowElementIndex + 1, currentRow + 1, (remainingString.substr(0, delimiterPos)));
 
 					rowElementIndex++;
-				
 
 				remainingString = remainingString.substr(delimiterPos + 1);
 			}
 			if ((remainingString.find(separator) == std::string::npos) && (remainingString.size() != 0)) // Pushing last element of original string
-				//std::cout << "Pushing LAST element: "<<delimiterPos << "dpos.  " << remainingString.substr(0, delimiterPos) << " to pos: " << currentRow + 1 << " " << rowElementIndex + 1 << std::endl;
+				//std::cout << "Pushing LAST element: "<<delimiterPos << "pos.  " << remainingString.substr(0, delimiterPos) << " to pos: " << currentRow + 1 << " " << rowElementIndex + 1 << std::endl;
 			newTable->setCell(rowElementIndex + 1, currentRow + 1, (remainingString));
 		}
 		currentRow++;
@@ -179,24 +173,4 @@ myTable* fileParsing::createTableFromFile(std::ifstream& myfile,char separator) 
 	return newTable;
 }
 
-
-void fileParsing::commandsFromFileToVector(std::string fileName, std::vector<std::string> &vectorOfCommands) {
-
-	std::cout << "Reading commands from file\n";
-
-	std::ifstream fileStream(fileName);
-	if (!fileStream.is_open())
-		std::cout << "File doesn't exist" << std::endl;
-	else {
-		std::cout << "File exist " << fileName << std::endl;
-
-		while (!fileStream.eof()) {   // !myfile.eof() wont read last line
-			std::cout << ".";
-			std::string line = "";
-			std::getline(fileStream, line);
-			vectorOfCommands.push_back(line);
-		}
-
-	}
-
-}
+//static myTable& createTableFromFile(std::string file, char separator) {}

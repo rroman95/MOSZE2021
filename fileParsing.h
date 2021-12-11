@@ -7,21 +7,18 @@
 
 #include "myTable.h"
 
-//		0	   1	   2  3
-//	./prog table.csv -sep ,
-
 struct fileParsing {
 	std::string inputFile;
 
-	//static myTable* fileHandling(char* fileToParse);
+	/** Checks if the given file exists, if no creates it, if yes, overwrites it */
 	static myTable* fileHandling(char* argv[]);
+	/** Checks if the given file exists, if no creates it, if yes, overwrites it. The string sep is looking for the specified separator in the .csv file */
 	static myTable* fileHandling(char* argv[], std::string sep);
 
-
-	static void commandsFromFileToVector(std::string fileName, std::vector<std::string>& vectorOfCommands);
-
+	/** Creates a table from a file */
 	static myTable* createTableFromFile(std::ifstream&, char _separator);
 
+	/** Saves active myTable to a .csv file */
 	static void saveFile(myTable* Table, std::string fileName, std::string separator);
 };
 
