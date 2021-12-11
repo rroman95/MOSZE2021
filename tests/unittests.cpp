@@ -9,3 +9,8 @@ TEST(TableTest, more) {
 	myTable* ptrToTable = new myTable("firstTable");
  	EXPECT_EQ(ptrToTable->getName(), "firstTable");
         }
+
+int main(int argc, char ** argv) {
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
+}
