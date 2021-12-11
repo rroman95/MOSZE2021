@@ -4,7 +4,7 @@
 #include "fileParsing.h"
 #include "gtest/gtest.h"
 
-Test(TableTest, more) {
+TEST(TableTest, more) {
  	Commands commands;
 	myTable* ptrToTable = new myTable("firstTable");
  	EXPECT_EQ(ptrToTable->getName(), "firstTable");
