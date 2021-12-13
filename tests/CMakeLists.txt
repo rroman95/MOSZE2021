@@ -6,6 +6,6 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++17")
-add_executable( runTests unittests.cpp )
+add_executable( runTests unittests.cpp ../myTable.cpp ../Cell.cpp)
 target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
 target_compile_features(runTests PRIVATE cxx_std_17)
