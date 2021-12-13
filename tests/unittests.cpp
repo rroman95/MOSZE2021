@@ -1,6 +1,6 @@
-#include "../myTable.h"
+//#include "../myTable.h"
 #include "../myTable.cpp"
-#include "../Cell.h"
+//#include "../Cell.h"
 #include "../Cell.cpp"
 #include <string>
 #include "gtest/gtest.h"
