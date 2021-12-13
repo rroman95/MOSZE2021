@@ -1,13 +1,10 @@
-#include "myTable.h"
 #include "Cell.h"
-#include "CommandParsing.h"
-#include "fileParsing.h"
+#include <string>
 #include "gtest/gtest.h"
 
 TEST(TableTest, more) {
- 	Commands commands;
-	myTable* ptrToTable = new myTable("firstTable");
- 	EXPECT_EQ(ptrToTable->getName(), "firstTable");
+	Cell cell1("asd");
+	EXPECT_EQ(cell1.getCellData(),"asd1");
         }
 
 int main(int argc, char ** argv) {
