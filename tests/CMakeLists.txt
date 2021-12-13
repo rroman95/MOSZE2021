@@ -5,9 +5,7 @@ project(MOSZE2021)
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
-get_filename_component(PARENT_DIR ../ ABSOLUTE)
-include_directories(${PARENT_DIR})
-
-add_executable( runTests unittests.cpp ${PARENT_DIR}/Cell.h ${PARENT_DIR}/Cell.cpp )
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++17")
+add_executable( runTests unittests.cpp )
 target_link_libraries(runTests gtest gtest_main pthread)
 target_compile_features(runTests PRIVATE cxx_std_17)
