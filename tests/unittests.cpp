@@ -1,7 +1,7 @@
 #include "myTable.h"
 #include "Cell.h"
 #include <string>
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 TEST(TableTest, more) {
 	Cell cell1("asd");
