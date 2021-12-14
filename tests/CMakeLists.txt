@@ -1,15 +1,13 @@
-cmake_minimum_required(VERSION 2.8...3.13)
+cmake_minimum_required(VERSION 2.6)
 
-project(MOSZE2021)
+project(SZE-MOSZE-2020-Bukottak_bosszuja)
 
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++17")
-
 get_filename_component(PARENT_DIR ../ ABSOLUTE)
 include_directories(${PARENT_DIR})
 
-add_executable( unittests unittests.cpp ${PARENT_DIR}/myTable.cpp ${PARENT_DIR}/Cell.cpp)
-target_link_libraries(unittests ${GTEST_LIBRARIES} pthread)
-target_compile_features(unittests PRIVATE cxx_std_17)
+add_executable( runTests unittest.cpp ${PARENT_DIR}/myTable.cpp ${PARENT_DIR}/Cell.cpp )
+target_link_libraries(runTests gtest gtest_main pthread)
+target_compile_features(runTests PRIVATE cxx_std_17)
