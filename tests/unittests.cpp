@@ -1,7 +1,5 @@
-#include "../myTable.h"
-//#include "../myTable.cpp"
-#include "../Cell.h"
-//#include "../Cell.cpp"
+#include "myTable.h"
+#include "Cell.h"
 #include <string>
 #include "gtest/gtest.h"
 
