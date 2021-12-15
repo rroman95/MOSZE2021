@@ -22,7 +22,7 @@ TEST(TableTest, goodNameTest) {
 
 TEST(TableTest, badNameTest) {
 	myTable* ptrToTable = nullptr;
-	ptrToTable = new myTable("lofasz");
+	ptrToTable = new myTable("first");
 	EXPECT_EQ(ptrToTable->getName(),"first");
         }
 
