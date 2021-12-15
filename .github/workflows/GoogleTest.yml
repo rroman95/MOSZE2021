@@ -12,4 +12,4 @@ jobs:
       - name: where am i ?
         run: cd tests && ls -a
       - name: Teszt futtatas
-        run: make unittests
+        run: ls -a && make unittests
