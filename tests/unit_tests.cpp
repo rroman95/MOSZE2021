@@ -14,12 +14,14 @@ TEST(TableTest, more2) {
         }
 
 TEST(TableTest, goodNameTest) {
+	myTable* ptrToTable = nullptr;
 	ptrToTable = new myTable("first");
 	EXPECT_EQ(ptrToTable->getName(),"first");
         }
 
 
 TEST(TableTest, badNameTest) {
+	myTable* ptrToTable = nullptr;
 	ptrToTable = new myTable("lofasz");
 	EXPECT_EQ(ptrToTable->getName(),"first");
         }
