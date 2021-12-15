@@ -10,7 +10,6 @@ jobs:
       - name: cmake
         run: cd tests && cmake CMakeLists.txt && make
       - name: Permission
-        run:  chmod +x test/unit_test.cpp
-      - run: g++ -std=c++17 *.cpp -o unit_test
+        run:  chmod +x tests/unittests.cpp
       - name: Teszt futtatas
         run: tests/unittests
