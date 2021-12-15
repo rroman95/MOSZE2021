@@ -13,6 +13,18 @@ TEST(TableTest, more2) {
 	EXPECT_EQ(cell1.getCellData(),"omg");
         }
 
+TEST(TableTest, goodNameTest) {
+	ptrToTable = new myTable("first");
+	EXPECT_EQ(ptrToTable->getName(),"first");
+        }
+
+
+TEST(TableTest, badNameTest) {
+	ptrToTable = new myTable("lofasz");
+	EXPECT_EQ(ptrToTable->getName(),"first");
+        }
+
+
 int main(int argc, char ** argv) {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
