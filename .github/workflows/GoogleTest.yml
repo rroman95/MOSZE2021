@@ -9,7 +9,8 @@ jobs:
         run: sudo apt install libgtest-dev && sudo apt install cmake && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make  && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       - name: cmake
         run: cd tests && cmake CMakeLists.txt && make
-      - name: where am i ?
-        run: cd tests && ls -a
+      - name: Permission
+        run:  chmod +x test/unit_test.cpp
+      - run: g++ -std=c++17 *.cpp -o unit_test
       - name: Teszt futtatas
-        run: cd tests && make unittests && ls -a &&  unittests
+        run: tests/unittests
