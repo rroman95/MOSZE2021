@@ -8,7 +8,7 @@ jobs:
       - name: Gtest/Cmake instalalas
         run: sudo apt install libgtest-dev && sudo apt install cmake && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make  && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       - name: cmake
-        run: cd tests && cmake . && make
+        run: cd tests && cmake CMakeLists.txt && make
       - name: where am i ?
         run: cd tests && ls -a
       - name: Teszt futtatas
