@@ -10,4 +10,4 @@ jobs:
       - name: cmake
         run: cd tests && cmake CMakeLists.txt && make
       - name: Run Unit Test
-        run: tests/unittests
+        run: tests/runUnitTest
