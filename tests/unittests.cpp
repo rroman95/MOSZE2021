@@ -4,7 +4,7 @@
 #include <gtest/gtest.h>
 
 TEST(TableTest, more) {
-	Cell cell1("asd");
+	Cell cell1("asd1");
 	EXPECT_EQ(cell1.getCellData(),"asd1");
         }
 
