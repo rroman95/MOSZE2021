@@ -8,6 +8,11 @@ TEST(TableTest, more) {
 	EXPECT_EQ(cell1.getCellData(),"asd1");
         }
 
+TEST(TableTest, more2) {
+	Cell cell1("omg);
+	EXPECT_EQ(cell1.getCellData(),"omg");
+        }
+
 int main(int argc, char ** argv) {
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
