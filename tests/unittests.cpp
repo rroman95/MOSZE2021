@@ -9,7 +9,7 @@ TEST(TableTest, more) {
         }
 
 TEST(TableTest, more2) {
-	Cell cell1("omg);
+	Cell cell1("omg");
 	EXPECT_EQ(cell1.getCellData(),"omg");
         }
 
