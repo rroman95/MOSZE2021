@@ -1,5 +1,5 @@
-#include "myTable.h"
-#include "Cell.h"
+#include "../myTable.h"
+#include "../Cell.h"
 #include <string>
 #include <gtest/gtest.h>
 
