@@ -1,5 +1,7 @@
 #include "../myTable.h"
 #include "../Cell.h"
+#include "../Commandparsing.h"
+#include "../fileParsing.h"
 #include <string>
 #include <gtest/gtest.h>
 
