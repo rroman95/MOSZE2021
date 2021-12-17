@@ -1,4 +1,4 @@
-name: Basic_IOtest
+name: IO and Command testing
 
 on:
   push
