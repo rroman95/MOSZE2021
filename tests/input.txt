@@ -1,6 +1,6 @@
 add 2 columns
 edit a1 A
-edit a2 B
-edit a3 C
+edit b1 B
+edit c1 C
 save tests/output.csv
 exit
