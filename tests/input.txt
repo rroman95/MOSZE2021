@@ -1,11 +1,5 @@
-add 3 columns
-add 4 rows
-edit a1 a1
-edit b1 b1
-edit c1 c1
-edit c2 emptyB4
-edit a4 prevLineEmpty
-edit d5 LE GRANDE FINALE
-save output.csv
+add 2 rows
+add 2 columns
+edit a1 ASD
+edit c3 LOL
 exit
-dont read this line
