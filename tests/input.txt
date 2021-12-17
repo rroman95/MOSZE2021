@@ -1,6 +1,6 @@
-add 2 rows
 add 2 columns
-edit a1 ASDaaaaaaaa
-edit c3 LOL
+edit a1 A
+edit a2 B
+edit a3 C
 save tests/output.csv
 exit
