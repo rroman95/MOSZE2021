@@ -1,7 +1,7 @@
 add 2 columns
 edit a10 celldoesntexits
 edit a1 OK
-sort rows by 5
+sort by 5
 save tests/output.csv
 exit
 dontreadthisline
