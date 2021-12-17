@@ -3,6 +3,6 @@ sort by 5
 edit a1 OK
 save tests/output.csv
 swap b4 i4
-swap a1 a6
+swap a1  a6
 exit
 dontreadthisline
