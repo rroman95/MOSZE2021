@@ -1,12 +1,7 @@
 add 2 columns
-edit a1 A
-edit b1 B
-edit c1 C
-add 2 rows
-edit a2 a2
-edit b2 b2
-edit C2 c2
-edit B3 onlyStringHere
+edit a10 celldoesntexits
+edit a1 OK
+sort rows by 5
 save tests/output.csv
 exit
 dontreadthisline
