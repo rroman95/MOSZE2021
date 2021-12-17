@@ -22,4 +22,4 @@ jobs:
       - name: generate files        
         run: ./tests/IOtest.sh 
       - name: I/O test 
-        run: diff --strip-trailing-cr tests/output.csv tests/good_output.csv
+        run: diff --strip-trailing-cr tests/output.csv tests/testfile_output.csv
