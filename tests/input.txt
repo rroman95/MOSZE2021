@@ -10,3 +10,4 @@ edit B3 onlyStringHere
 insert 1 rows after 2
 save tests/output.csv
 exit
+dontreadthisline
