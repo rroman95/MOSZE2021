@@ -1,4 +1,4 @@
-name: Input_Output_Test
+name: Basic_IOtest
 
 on:
   push
