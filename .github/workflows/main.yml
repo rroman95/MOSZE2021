@@ -17,12 +17,9 @@ jobs:
         
       - name: Build
         run: g++ -Wall -Werror -std=c++17 *.cpp -o project
-        
       - name: Make executeable
         run: chmod +x ./IOtest.sh
-        
       - name: generate files        
         run: ./IOtest.sh 
-        
       - name: I/O test 
         run: diff --strip-trailing-cr output.csv good_output.csv
