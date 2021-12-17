@@ -20,6 +20,6 @@ jobs:
       - name: Make executeable
         run: chmod +x ./IOtest.sh
       - name: generate files        
-        run: ./IOtest.sh 
+        run: ./tests/IOtest.sh 
       - name: I/O test 
-        run: diff --strip-trailing-cr output.csv good_output.csv
+        run: diff --strip-trailing-cr tests/output.csv tests/good_output.csv
