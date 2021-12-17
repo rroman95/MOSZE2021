@@ -1,6 +1,6 @@
 edit a10 celldoesntexits
-edit a1 OK
 sort by 5
+edit a1 OK
 save tests/output.csv
 exit
 dontreadthisline
