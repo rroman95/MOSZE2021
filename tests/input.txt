@@ -1,6 +1,8 @@
 edit a10 celldoesntexits
 sort by 5
 edit a1 OK
+swap b4 i4
+swap a1 a6
 save tests/output.csv
 exit
 dontreadthisline
