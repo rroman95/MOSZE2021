@@ -1,4 +1,3 @@
-add 2 columns
 edit a10 celldoesntexits
 edit a1 OK
 sort by 5
