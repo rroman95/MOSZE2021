@@ -16,10 +16,10 @@ TEST(CellTest, getCellInitialAlignment) {
         }
 
 TEST(CellTest, isAggregate) {
-	Commands* commandsPtr = new Commands();
+	Commands commands;
 	myTable* ptrToTable = new myTable("initTable");
-	const std::string input = "edit a1 =SUM(a2:c2)";
-	commandsPtr->CommandParsing(ptrToTable, input);
+	commands.CommandParsing(ptrToTable, "edit a1 =SUM(a2:c2)");
+	ASSERT_EQ(ptrToTable->getCellObject(0,0)->printCellData(), "#NAME?");
 	EXPECT_EQ(ptrToTable->checkIfCellIsAggregate(0,0), 1);
         }
 
