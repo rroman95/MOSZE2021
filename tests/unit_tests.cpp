@@ -85,6 +85,13 @@ TEST(fileParsingTest, Open_File_And_Check_Dimensions) {
 	EXPECT_EQ(ptrToTable->getColumn(),3);
         }
 
+TEST(AggregateCellFunctionsTest, SUM_AVG_MIN_MAX_test) {
+	Commands commands;
+	myTable* ptrToTable = fileParsing::fileHandling("tests/testfile2.csv");
+	commands.CommandParsing(ptrToTable, "edit a1 =SUM(a2:c3)");
+	EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellData(), 130.59);
+        }
+
 
 int main(int argc, char ** argv) {
 	::testing::InitGoogleTest(&argc, argv);
