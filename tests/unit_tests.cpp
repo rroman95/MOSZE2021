@@ -17,7 +17,7 @@ TEST(CellTest, getCellInitialAlignment) {
 
 TEST(CellTest, isAggregate) {
 	myTable* ptrToTable = new myTable("initTable");
-	ptrToTable->setCell(0,0);
+	ptrToTable->setCell(0,0, "=SUM(a2:c2)");
 	ptrToTable->promoteCellsAfterFileParsing(ptrToTable);
 	EXPECT_EQ(ptrToTable->checkIfCellIsAggregate(0,0), 1);
         }
