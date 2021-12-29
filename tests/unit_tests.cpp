@@ -92,6 +92,10 @@ TEST(AggregateCellFunctionsTest, SUM_AVG_MIN_MAX_test) {
 	ASSERT_NEAR(stof(ptrToTable->getCellObject(0,0)->getCellData()), 130.59,0.01);
 	commands.CommandParsing(ptrToTable, "edit a1 =AVG(a2:c3)");
 	ASSERT_NEAR(stof(ptrToTable->getCellObject(0,0)->getCellData()), 21.765,0.01);
+	commands.CommandParsing(ptrToTable, "edit a1 =MIN(a2:c3)");
+	ASSERT_NEAR(stof(ptrToTable->getCellObject(0,0)->getCellData()), 0.5,0.01);
+	commands.CommandParsing(ptrToTable, "edit a1 =MAX(a2:c3)");
+	ASSERT_NEAR(stof(ptrToTable->getCellObject(0,0)->getCellData()), 123.10,0.01);
         }
 
 
