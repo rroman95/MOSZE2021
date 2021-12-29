@@ -18,7 +18,7 @@ TEST(CellTest, getCellInitialAlignment) {
 TEST(CellTest, promotingCellToAggregateWithBadRange) {
 	Commands commands;
 	myTable* ptrToTable = new myTable("initTable");
-	commands.CommandParsing(ptrToTable,"edit a1 =SUM(a2:c2)")
+	commands.CommandParsing(ptrToTable,"edit a1 =SUM(a2:c2)");
 	EXPECT_EQ(cell1.getCellData(),"#NAME?");
         }
 
