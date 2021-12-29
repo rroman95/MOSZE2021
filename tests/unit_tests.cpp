@@ -19,7 +19,8 @@ TEST(CellTest, isAggregate) {
 	Commands commands;
 	myTable* ptrToTable = new myTable("initTable");
 	commands.CommandParsing(ptrToTable, "edit a1 =SUM(a2:c2)");
-	ASSERT_EQ(ptrToTable->getCellObject(0,0)->printCellData(), "#NAME?");
+	ASSERT_EQ(ptrToTable->getCellObject(0,0)->data, "edit a1 =SUM(a2:c2)");
+	ASSERT_EQ(ptrToTable->getCellObject(0,0)->calculatedValue, "#NAME?");
 	EXPECT_EQ(ptrToTable->checkIfCellIsAggregate(0,0), 1);
         }
 
