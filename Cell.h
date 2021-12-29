@@ -48,6 +48,8 @@ public:
 	virtual std::string printCell() { return data.substr(0,data.find(".")+4); };
 	//virtual std::string getCellData() { return data.substr(0, data.find(".") + 4); }
 	virtual std::string getCellData() const { return data; }
+
+	char getCellAlignment() const { return alignment; }
 };
 
 
