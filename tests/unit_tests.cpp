@@ -22,7 +22,16 @@ TEST(CellTest, isAggregate) {
 	ASSERT_EQ(ptrToTable->checkIfCellIsAggregate(0,0), 1);
 	EXPECT_EQ(ptrToTable->getCellObject(0,0)->data, "=SUM(a2:c2)");
 	EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellData(), "#NAME?");
+        }
 
+TEST(CellTest, promoteAndDemoteCell) {
+	Commands commands;
+	myTable* ptrToTable = new myTable("initTable");
+	ASSERT_EQ(ptrToTable->checkIfCellIsAggregate(0,0),0);
+	commands.CommandParsing(ptrToTable, "edit a1 =SUM(a2:c2)");
+	ASSERT_EQ(ptrToTable->checkIfCellIsAggregate(0,0), 1);
+	commands.CommandParsing(ptrToTable, "edit a1 asd");
+	ASSERT_EQ(ptrToTable->checkIfCellIsAggregate(0,0), 0);
         }
 
 TEST(TableTest, TableNameTest) {
