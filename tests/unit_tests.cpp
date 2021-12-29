@@ -48,7 +48,7 @@ TEST(TableTest, dimensionTest2) {
 TEST(CommandsTest, editTest) {
 	Commands commands;
 	myTable* ptrToTable = new myTable("init");
-	commands.CommandParsing(ptrToTable, "edit a1 lorem ipsum")
+	commands.CommandParsing(ptrToTable, "edit a1 lorem ipsum");
 	EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellData(),"lorem ipsum");
         }
 
