@@ -16,7 +16,7 @@ TEST(CellTest, getCellInitialAlignment) {
         }
 
 TEST(CellTest, isAggregate) {
-	commandsPtr = new Commands;
+	Commands* commandsPtr = new Commands();
 	myTable* ptrToTable = new myTable("initTable");
 	const std::string input = "edit a1 =SUM(a2:c2)";
 	commandsPtr->CommandParsing(ptrToTable, input);
