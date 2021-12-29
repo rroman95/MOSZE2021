@@ -15,26 +15,14 @@ TEST(CellTest, getCellInitialAlignment) {
 	EXPECT_EQ(cell1.getCellAlignment(),'r');
         }
 
-TEST(CellTest, promotingCellToAggregateWithBadRange) {
-	Commands commands;
-	myTable* ptrToTable = new myTable("initTable");
-	std::string input = "edit a1 =SUM(a2:c2)";
-	commands.CommandParsing(ptrToTable, input);
-	EXPECT_EQ(1,1);
-	//EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellData(),"#NAME?");
-        }
-
-
 TEST(TableTest, TableNameTest) {
-	myTable* ptrToTable = nullptr;
-	ptrToTable = new myTable("first");
+	myTable* ptrToTable = new myTable("first");
 	EXPECT_EQ(ptrToTable->getName(),"first");
         }
 
 
 TEST(TableTest, dimensionTest) {
-	myTable* ptrToTable = nullptr;
-	ptrToTable = new myTable("first");
+	myTable* ptrToTable = new myTable("first");
 	EXPECT_EQ(ptrToTable->getRow(),1);
 	EXPECT_EQ(ptrToTable->getColumn(),1);
         }
