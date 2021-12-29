@@ -17,6 +17,23 @@ myTable* fileParsing::fileHandling(char* argv[]) {
 	return newTable;
 }
 
+myTable* fileParsing::fileHandling(std::string input) {
+	std::ifstream myfile;
+	myTable* newTable = nullptr;
+
+	myfile.open(input);
+	if (myfile.is_open()) {
+		std::cout << input << " exist." << std::endl;
+		newTable = createTableFromFile(myfile, ';'); // separator by default is ';' 
+
+		myfile.close();
+	}
+	else
+		std::cout << input << " doesn't exist." << std::endl;
+
+	return newTable;
+}
+
 myTable* fileParsing::fileHandling(char* argv[], std::string separator) {		// SOK a function exit point !
 	std::cout << "CALLING SEPARATOR FUNCTION" << std::endl;								//			|
 	std::string sepCommandFromArgToString = argv[2];	// -sep							//			|
