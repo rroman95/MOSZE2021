@@ -5,27 +5,28 @@
 #include <string>
 #include <gtest/gtest.h>
 
-TEST(TableTest, more) {
+TEST(CellTest, getCellData) {
 	Cell cell1("asd1");
 	EXPECT_EQ(cell1.getCellData(),"asd1");
         }
 
-TEST(TableTest, more2) {
+TEST(CellTest, getCellInitialAlignment) {
 	Cell cell1("omg");
-	EXPECT_EQ(cell1.getCellData(),"omg");
+	EXPECT_EQ(cell1.getCellAlignment(),'r');
         }
 
-TEST(TableTest, goodNameTest) {
+TEST(TableTest, TableNameTest) {
 	myTable* ptrToTable = nullptr;
 	ptrToTable = new myTable("first");
 	EXPECT_EQ(ptrToTable->getName(),"first");
         }
 
 
-TEST(TableTest, badNameTest) {
+TEST(TableTest, dimensionTest) {
 	myTable* ptrToTable = nullptr;
 	ptrToTable = new myTable("first");
-	EXPECT_EQ(ptrToTable->getName(),"first");
+	EXPECT_EQ(ptrToTable->getRow(),1);
+	EXPECT_EQ(ptrToTable->getColumn(),1);
         }
 
 
