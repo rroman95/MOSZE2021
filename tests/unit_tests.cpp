@@ -80,7 +80,7 @@ TEST(CommandsTest, swapTest) {
         }
 
 TEST(fileParsingTest, Open_File_And_Check_Dimensions) {
-	myTable* ptrToTable = fileParsing::fileHandling(../"testfile2.csv");
+	myTable* ptrToTable = fileParsing::fileHandling("tests/testfile2.csv");
 	EXPECT_EQ(ptrToTable->getRow(),3);
 	EXPECT_EQ(ptrToTable->getColumn(),3);
         }
