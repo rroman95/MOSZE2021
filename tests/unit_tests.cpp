@@ -26,7 +26,7 @@ TEST(TableTest, dimensionTest) {
 	myTable* ptrToTable = nullptr;
 	ptrToTable = new myTable("first");
 	EXPECT_EQ(ptrToTable->getRow(),1);
-	EXPECT_EQ(ptrToTable->getColumn(),1);
+	EXPECT_EQ(ptrToTable->getColumn(),2);
         }
 
 
