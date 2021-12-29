@@ -18,7 +18,8 @@ TEST(CellTest, getCellInitialAlignment) {
 TEST(CellTest, isAggregate) {
 	Commands commands;
 	myTable* ptrToTable = new myTable("initTable");
-	commands.CommandParsing(ptrToTable, "edit a1 =SUM(a2:c2)");
+	const std::string input = "edit a1 =SUM(a2:c2)";
+	commands.CommandParsing(ptrToTable, input);
 	EXPECT_EQ(ptrToTable->checkIfCellIsAggregate(0,0), 1);
         }
 
