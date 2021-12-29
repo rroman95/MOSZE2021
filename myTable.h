@@ -108,6 +108,14 @@ public:
 			return Cells[xPos][yPos];
 	}
 
+	bool checkIfCellIsAggregate(int yPos, int xPos) {
+
+		if (dynamic_cast<Aggregate_Cell*>(Cells[yPos][xPos]))
+			return 1;
+		else
+			return 0;
+	}
+
 	void swapElements(int yPos_A, int xPos_A, int yPos_B, int xPos_B ) {
 		std::cout << "Swapping Elements\n";
 		Cell* temp = Cells[xPos_A][yPos_A];
@@ -137,6 +145,7 @@ public:
 	void deleteColumn(int);
 	/** Sorts the Table's columns by the given row */
 	void sortRow(int, bool);
+	/** Swaps entire column with the next one - for bubblesort */
 	void swapCurrentColumnWithNext(unsigned int);
 	/** Sorts the Table's rows by the given column */
 	void sortColumn(int, bool);
