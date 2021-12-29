@@ -90,6 +90,8 @@ TEST(AggregateCellFunctionsTest, SUM_AVG_MIN_MAX_test) {
 	myTable* ptrToTable = fileParsing::fileHandling("tests/testfile2.csv");
 	commands.CommandParsing(ptrToTable, "edit a1 =SUM(a2:c3)");
 	ASSERT_NEAR(stof(ptrToTable->getCellObject(0,0)->getCellData()), 130.59,0.01);
+	commands.CommandParsing(ptrToTable, "edit a1 =AVG(a2:c3)");
+	ASSERT_NEAR(stof(ptrToTable->getCellObject(0,0)->getCellData()), 21.765,0.01);
         }
 
 
