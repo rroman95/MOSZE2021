@@ -79,6 +79,11 @@ TEST(CommandsTest, swapTest) {
 	EXPECT_EQ(ptrToTable->getCellObject(0,1)->getCellData(),"asd");
         }
 
+TEST(fileParsingTest, Open File And Manipulate it) {
+	myTable* ptrToTable = fileParsing::fileHandling(testfile2.csv);
+	EXPECT_EQ(ptrToTable->getRow(),3);
+	EXPECT_EQ(ptrToTable->getColumn(),3);
+        }
 
 
 int main(int argc, char ** argv) {
