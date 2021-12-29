@@ -15,6 +15,14 @@ TEST(CellTest, getCellInitialAlignment) {
 	EXPECT_EQ(cell1.getCellAlignment(),'r');
         }
 
+TEST(CellTest, promotingCellToAggregateWithBadRange) {
+	Commands commands;
+	myTable* ptrToTable = new myTable("initTable");
+	commands.CommandParsing(ptrToTable,"edit a1 =SUM(a2:c2)")
+	EXPECT_EQ(cell1.getCellData(),"#NAME?");
+        }
+
+
 TEST(TableTest, TableNameTest) {
 	myTable* ptrToTable = nullptr;
 	ptrToTable = new myTable("first");
