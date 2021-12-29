@@ -52,6 +52,13 @@ TEST(CommandsTest, editTest) {
 	EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellData(),"lorem ipsum");
         }
 
+TEST(CommandsTest, alignTest) {
+	Commands commands;
+	myTable* ptrToTable = new myTable("init");
+	commands.CommandParsing(ptrToTable, "align a1 left");
+	EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellAlignment(),'l');
+        }
+
 
 int main(int argc, char ** argv) {
 	::testing::InitGoogleTest(&argc, argv);
