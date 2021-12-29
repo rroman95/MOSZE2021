@@ -89,7 +89,7 @@ TEST(AggregateCellFunctionsTest, SUM_AVG_MIN_MAX_test) {
 	Commands commands;
 	myTable* ptrToTable = fileParsing::fileHandling("tests/testfile2.csv");
 	commands.CommandParsing(ptrToTable, "edit a1 =SUM(a2:c3)");
-	EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellData(), 130.59);
+	ASSERT_DOUBLE_EQ(ptrToTable->getCellObject(0,0)->getCellData(), 130.59);
         }
 
 
