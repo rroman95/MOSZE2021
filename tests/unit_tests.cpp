@@ -19,9 +19,10 @@ TEST(CellTest, isAggregate) {
 	Commands commands;
 	myTable* ptrToTable = new myTable("initTable");
 	commands.CommandParsing(ptrToTable, "edit a1 =SUM(a2:c2)");
-	ASSERT_EQ(ptrToTable->getCellObject(0,0)->data, "=SUM(a2:c2)");
-	ASSERT_EQ(ptrToTable->getCellObject(0,0)->getCellData(), "#NAME?");
-	EXPECT_EQ(ptrToTable->checkIfCellIsAggregate(0,0), 1);
+	ASSERT_EQ(ptrToTable->checkIfCellIsAggregate(0,0), 1);
+	EXPECT_EQ(ptrToTable->getCellObject(0,0)->data, "=SUM(a2:c2)");
+	EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellData(), "#NAME?");
+
         }
 
 TEST(TableTest, TableNameTest) {
@@ -42,6 +43,13 @@ TEST(TableTest, dimensionTest2) {
 	ptrToTable->addRows(5);
 	ptrToTable->addColumns(5);
 	EXPECT_EQ(ptrToTable->getRow()*ptrToTable->getColumn(),36);
+        }
+
+TEST(CommandsTest, editTest) {
+	Commands commands;
+	ptrToTable = new myTable("init");
+	commands.CommandParsing(ptrToTable, "edit a1 lorem ipsum")
+	EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellData(),"lorem ipsum");
         }
 
 
