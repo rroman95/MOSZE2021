@@ -18,7 +18,8 @@ TEST(CellTest, getCellInitialAlignment) {
 TEST(CellTest, promotingCellToAggregateWithBadRange) {
 	Commands commands;
 	myTable* ptrToTable = new myTable("initTable");
-	commands.CommandParsing(ptrToTable,"edit a1 =SUM(a2:c2)");
+	std::string input = "edit a1 =SUM(a2:c2)";
+	commands.CommandParsing(ptrToTable, input);
 	EXPECT_EQ(1,1);
 	//EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellData(),"#NAME?");
         }
