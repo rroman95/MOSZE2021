@@ -64,7 +64,7 @@ TEST(CommandsTest, swapTest) {
 	myTable* ptrToTable = new myTable("init");
 	commands.CommandParsing(ptrToTable, "add 1 rows");
 	commands.CommandParsing(ptrToTable, "edit a1 asd");
-	commands.CommandParsing(ptrToTable, "add a2 lol");
+	commands.CommandParsing(ptrToTable, "edit a2 lol");
 	commands.CommandParsing(ptrToTable, "swap a1 a2");
 	EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellData(),"lol");
 	EXPECT_EQ(ptrToTable->getCellObject(0,1)->getCellData(),"asd");
