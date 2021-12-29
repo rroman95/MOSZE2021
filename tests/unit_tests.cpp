@@ -16,9 +16,9 @@ TEST(CellTest, getCellInitialAlignment) {
         }
 
 TEST(CellTest, isAggregate) {
+	Commands commands;
 	myTable* ptrToTable = new myTable("initTable");
-	ptrToTable->setCell(0,0, "=SUM(a2:c2)");
-	ptrToTable->promoteCellsAfterFileParsing(ptrToTable);
+	commands.CommandParsing(ptrToTable, "edit a1 =SUM(a2:c2)");
 	EXPECT_EQ(ptrToTable->checkIfCellIsAggregate(0,0), 1);
         }
 
