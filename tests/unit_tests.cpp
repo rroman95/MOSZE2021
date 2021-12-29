@@ -59,7 +59,7 @@ TEST(CommandsTest, alignTest) {
 	EXPECT_EQ(ptrToTable->getCellObject(0,0)->getCellAlignment(),'l');
         }
 
-TEST(CommandsTest, alignTest) {
+TEST(CommandsTest, swapTest) {
 	Commands commands;
 	myTable* ptrToTable = new myTable("init");
 	commands.CommandParsing(ptrToTable, "add 1 rows");
