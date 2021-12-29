@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-project(SZE-MOSZE-2020-Bukottak_bosszuja)
+project(SZE-MOSZE-2021-Successfully_Failed)
 
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
