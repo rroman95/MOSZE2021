@@ -133,10 +133,10 @@ void myTable::printTableWin() const {
 			}
 			else { // Cell ALIGNMENT = 'r'
 
-				if (dynamic_cast<Aggregate_Cell*>(Cells[i][j]))
+				/*if (dynamic_cast<Aggregate_Cell*>(Cells[i][j]))
 					std::cout << "A ";
 				else
-					std::cout << "C ";
+					std::cout << "C ";*/
 			std::cout  << printIt(" ", maxLengthOfColumns[j] - Cells[i][j]->getCellData().length()) <<
 				Cells[i][j]->getCellData() << "|";
 			}

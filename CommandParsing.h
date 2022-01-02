@@ -63,6 +63,7 @@ public:
 	void sortParsing(myTable* Table, std::string const& input);
 	/** Input checking for CLEAR function */
 	void clearParsing(myTable* Table, std::string const& input);
+	/** Input checking for AGGREGATE SET function */
 	void setParsing(myTable* Table, std::string const& input);
 
 };

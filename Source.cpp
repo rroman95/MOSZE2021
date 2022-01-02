@@ -27,7 +27,6 @@ int main(int argc,  char **argv) {
 	checkOS(isWin);
 
 	userGuide(isWin); // Print User Guide
-	std::cout << "DEBUG LINE\n";
 	ptrToTable->promoteCellsAfterFileParsing(ptrToTable);
 	
 	printTableOS(ptrToTable, isWin); // Initial draw of Table
@@ -42,8 +41,6 @@ int main(int argc,  char **argv) {
 		userGuide(isWin);							// user guide
 		commands.CommandParsing(ptrToTable, input);	// UPDATE
 		printTableOS(ptrToTable, isWin);			// DRAW
-		std::cout <<"Alignment(0,0) " <<  ptrToTable->getCellObject(0, 0)->getCellAlignment() << "\n";
-		
 
 	}
 

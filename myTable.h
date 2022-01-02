@@ -74,7 +74,7 @@ public:
 	/** Assignment operator blocked */
 	myTable& operator=(const myTable&) = delete;
 
-
+	/** returns the Tables unique name */
 	std::string getName() const { return name; }
 	/** returns the Tables width */
 	int getRow() const { return row; }
@@ -108,6 +108,7 @@ public:
 			return Cells[xPos][yPos];
 	}
 
+	/** Return true, if Cell is of aggrevate type */
 	bool checkIfCellIsAggregate(int yPos, int xPos) {
 
 		if (dynamic_cast<Aggregate_Cell*>(Cells[yPos][xPos]))
@@ -116,6 +117,7 @@ public:
 			return 0;
 	}
 
+	/** Swaps vector elements*/
 	void swapElements(int yPos_A, int xPos_A, int yPos_B, int xPos_B ) {
 		std::cout << "Swapping Elements\n";
 		Cell* temp = Cells[xPos_A][yPos_A];
@@ -172,9 +174,13 @@ public:
 	
 
 	//AGGREGATE CELL FUNCTIONS
+
+	/** If input creates Aggregate Cell, create it and replace basic Cell  */
 	void promoteCellToAggregate(myTable* Table, int yPos, int xPos, int functionType, std::string AggregateString);
+	/** If input creates Cell, create it and replace basic Aggrevate Cell  */
 	void demoteAggregateToCell(int yPos, int xPos, std::string const& toSet);
 
+	/** Promotes Cells that are of Aggrevate type after parsing elements from file and placing them into the myTable*/
 	void promoteCellsAfterFileParsing(myTable* Table);
 
 };

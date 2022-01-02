@@ -86,18 +86,16 @@ public:
 	//CALCULATE Cells in Range
 	void calculateCellsInRange();
 
+	/** Regex based string check for valid floating numbers */
 	bool isNumber(const std::string& str);
 
 	//RANGE CHECKING
 	static bool isValidRangeFormat(const std::string& str);
+	/** Returns Corners in String format  */
 	static std::pair<std::string, std::string> getRangeCornerStrings(const std::string& range);
+	/** Returns Corners converted from String to Int  */
 	static std::tuple<int, int, int, int> getRangeCornerInts(const std::string& range);
 	//void calculateAggregate(myTable* Table);
-
-
-
-
-		float sumElementsInRange{};
 
 }; 
 
